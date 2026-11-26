@@ -1,0 +1,160 @@
+/* ── Reset ─────────────────────────────────────── */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: #000;
+  color: #0f0;
+  font-family: 'Courier New', Courier, monospace;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  overflow: hidden;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+/* ── Container ─────────────────────────────────── */
+#game-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* ── HUD ───────────────────────────────────────── */
+#hud {
+  width: 640px;
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 4px;
+  font-size: 15px;
+  letter-spacing: 2px;
+  color: #0f0;
+  text-shadow: 0 0 6px #0f0;
+}
+
+/* ── Canvas ────────────────────────────────────── */
+#game-canvas {
+  display: block;
+  border: 2px solid #0a0;
+  box-shadow: 0 0 24px rgba(0, 255, 0, 0.12);
+  image-rendering: pixelated;
+}
+
+/* ── Lives bar ─────────────────────────────────── */
+#lives-bar {
+  width: 640px;
+  padding: 6px 4px;
+  font-size: 14px;
+  letter-spacing: 2px;
+  color: #0f0;
+  text-shadow: 0 0 6px #0f0;
+  min-height: 26px;
+}
+#lives { letter-spacing: 4px; }
+
+/* ── Overlay screens ───────────────────────────── */
+.overlay-screen {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.88);
+  z-index: 10;
+  transition: opacity 0.3s;
+}
+
+.overlay-screen.hidden {
+  display: none !important;
+}
+
+.title {
+  font-size: 44px;
+  letter-spacing: 6px;
+  margin-bottom: 18px;
+}
+
+.glow-green {
+  color: #0f0;
+  text-shadow: 0 0 20px #0f0, 0 0 40px #0a0;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+#gameover-title {
+  color: #f44;
+  text-shadow: 0 0 20px #f44, 0 0 40px #a00;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+#final-score {
+  font-size: 20px;
+  letter-spacing: 3px;
+  margin-bottom: 24px;
+  color: #fff;
+}
+
+.alien-preview {
+  font-size: 36px;
+  margin-bottom: 20px;
+  animation: float 2.5s ease-in-out infinite;
+}
+
+.controls-info {
+  font-size: 14px;
+  text-align: center;
+  line-height: 1.9;
+  margin-bottom: 24px;
+  color: #0c0;
+}
+.controls-info strong {
+  font-size: 16px;
+  color: #0f0;
+}
+
+.hint {
+  margin-top: 10px;
+  font-size: 12px;
+  color: #070;
+  letter-spacing: 1px;
+  animation: blink 1.2s step-end infinite;
+}
+
+/* ── Buttons ───────────────────────────────────── */
+button {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 20px;
+  letter-spacing: 3px;
+  padding: 12px 36px;
+  background: transparent;
+  color: #0f0;
+  border: 2px solid #0f0;
+  cursor: pointer;
+  text-transform: uppercase;
+  transition: all 0.2s;
+}
+button:hover, button:focus {
+  background: #0f0;
+  color: #000;
+  box-shadow: 0 0 24px #0f0;
+  outline: none;
+}
+
+/* ── Keyframes ─────────────────────────────────── */
+@keyframes pulse {
+  0%, 100% { filter: brightness(1); }
+  50%      { filter: brightness(1.4); }
+}
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-8px); }
+}
+@keyframes blink {
+  50% { opacity: 0; }
+}

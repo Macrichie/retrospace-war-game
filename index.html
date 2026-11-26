@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Space Invaders</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="game-container">
+    <div id="hud">
+      <div class="hud-item">SCORE: <span id="score">0000</span></div>
+      <div class="hud-item">HI-SCORE: <span id="hi-score">0000</span></div>
+      <div class="hud-item">LEVEL: <span id="level">1</span></div>
+    </div>
+    <canvas id="game-canvas" width="640" height="480"></canvas>
+    <div id="lives-bar">LIVES: <span id="lives"></span></div>
+
+    <!-- Start screen -->
+    <div id="start-screen" class="overlay-screen">
+      <h1 class="title glow-green">SPACE INVADERS</h1>
+      <div class="alien-preview">&#x1F47E; &#x1F47E; &#x1F47E;</div>
+      <div class="controls-info">
+        <p><strong>CONTROLS</strong></p>
+        <p>&#8592; &#8594; &mdash; Move</p>
+        <p>SPACE &mdash; Fire</p>
+        <p>P &mdash; Pause</p>
+      </div>
+      <button id="start-btn">START GAME</button>
+      <p class="hint">or press ENTER</p>
+    </div>
+
+    <!-- Game-over screen -->
+    <div id="gameover-screen" class="overlay-screen hidden">
+      <h1 id="gameover-title" class="title">GAME OVER</h1>
+      <p id="final-score">FINAL SCORE: 0000</p>
+      <button id="restart-btn">PLAY AGAIN</button>
+      <p class="hint">or press ENTER</p>
+    </div>
+
+    <!-- Pause overlay -->
+    <div id="pause-screen" class="overlay-screen hidden">
+      <h1 class="title glow-green">PAUSED</h1>
+      <p class="hint">Press P or ENTER to resume</p>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
